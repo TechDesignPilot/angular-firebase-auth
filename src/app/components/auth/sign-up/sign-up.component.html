@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+    <div class="text-center mt-5 pt-5">
+        <img src="assets/images/firebase.png" width="250" class="mb-3" />
+        <h1>
+            Welcome to our App.
+        </h1>
+        <p>
+            Please sign-up to start using our App.
+        </p>
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline" class="d-block">
+                <mat-label>Email/Username</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="d-block">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password">
+            </mat-form-field>
+
+            <!-- error message -->
+            <div class="alert alert-danger d-flex align-items-center p-2" *ngIf="errorMessage">
+                <mat-icon>info</mat-icon>
+                {{errorMessage}}
+            </div>
+            <!-- Progress spinner -->
+            <div class="d-flex align-items-center" *ngIf="isSubmissionInProgress">
+                <mat-spinner [diameter]="22">
+                </mat-spinner>
+                Signing-up...
+            </div>
+
+            <button type="submit" mat-raised-button class="d-block mb-1 auth-button">
+                Sign-Up
+            </button>
+        </form>
+
+
+
+        <button mat-raised-button class="d-block mb-2 auth-button" (click)="onSignInWithGoogle()">
+            Sign-Up with Google
+        </button>
+
+        <p>
+            You have an account?
+        </p>
+        <button mat-raised-button [routerLink]="['/auth/sign-in']" class="d-block auth-button" color="primary">
+            Sign-In
+        </button>
+        <a [routerLink]="['/auth/forgot-password']" class="d-block mt-2">
+            Forgot Password
+        </a>
+    </div>
+</div>

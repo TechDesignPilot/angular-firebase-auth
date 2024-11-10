@@ -1,0 +1,18 @@
+<div class="text-center mt-5 pt-5">
+    <img src="assets/images/firebase.png" width="250" class="mb-3" />
+    <h1>
+        Welcome to our App.
+    </h1>
+    <p>
+        Please sign-in or sign-up to start using our App.
+    </p>
+    <button mat-raised-button class="me-2" [routerLink]="['/auth/sign-in']">
+        Sign-In
+    </button>
+    <button mat-raised-button color="primary" [routerLink]="['/auth/sign-up']">
+        Sign-Up
+    </button>
+    <a [routerLink]="['/auth/forgot-password']" class="d-block mt-2">
+        Forgot Password
+    </a>
+</div>
